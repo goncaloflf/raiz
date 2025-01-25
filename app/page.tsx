@@ -1,7 +1,16 @@
-import Image from "next/image"
-import { Scissors, MapPin, Phone, Clock, Instagram, PhoneIcon as WhatsApp } from "lucide-react"
-import { SiteHeader } from "@/components/site-header"
-import Link from "next/link"
+import Image from "next/image";
+import {
+  Scissors,
+  MapPin,
+  Phone,
+  Clock,
+  Instagram,
+  PhoneIcon as WhatsApp,
+  Slice,
+} from "lucide-react";
+import { SiteHeader } from "@/components/site-header";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   return (
@@ -11,7 +20,7 @@ export default function Home() {
       {/* Hero Section */}
       <header className="relative h-screen">
         <Image
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-23%20at%2022.58.09-MWe29ziZR5Spt0oKZR7JH666Fm0msP.jpeg"
+          src="/photos/sala-1.jpeg"
           alt="Raiz Barber Studio Interior"
           layout="fill"
           objectFit="cover"
@@ -19,7 +28,19 @@ export default function Home() {
           priority
         />
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white">
-          <p className="text-4xl italic mb-8 font-light tracking-wider">O teu estilo começa na Raiz!</p>
+          <p className="text-4xl italic mb-8 font-light tracking-wider">
+            O teu estilo começa na Raiz!
+          </p>
+          <Link href="https://noona.pt/raizbarberstudio" target="_blank">
+            <Button
+              variant={"default"}
+              className={
+                "text-black border-white bg-white hover:bg-transparent hover:text-white"
+              }
+            >
+              Reservar
+            </Button>
+          </Link>
         </div>
       </header>
 
@@ -30,15 +51,19 @@ export default function Home() {
           <div className="prose prose-lg mx-auto">
             <h3 className="text-2xl font-semibold mt-12 mb-6">História</h3>
             <p className="text-lg leading-relaxed mb-8">
-              A Raiz Barber Studio nasceu do sonho e dedicação de Rodrigo Mourão, após 7 anos de experiência em
-              barbearias de excelência. Inspirados pelas tradições e costumes da zona saloia, criámos um espaço onde a
-              autenticidade das nossas origens se junta à modernidade e ao estilo.
+              A Raiz Barber Studio nasceu do sonho e dedicação de Rodrigo
+              Mourão, após 7 anos de experiência em barbearias de excelência.
+              Inspirados pelas tradições e costumes da zona saloia, criámos um
+              espaço onde a autenticidade das nossas origens se junta à
+              modernidade e ao estilo.
             </p>
             <h3 className="text-2xl font-semibold mt-12 mb-6">Missão</h3>
             <p className="text-lg leading-relaxed">
-              Na Raiz, acreditamos que cada detalhe importa. Combinamos técnicas clássicas de barbearia com um toque
-              contemporâneo, oferecendo uma experiência única e personalizada. Tal como as raízes sustentam o
-              crescimento, queremos ser a base que apoia o estilo e a confiança de cada cliente.
+              Na Raiz, acreditamos que cada detalhe importa. Combinamos técnicas
+              clássicas de barbearia com um toque contemporâneo, oferecendo uma
+              experiência única e personalizada. Tal como as raízes sustentam o
+              crescimento, queremos ser a base que apoia o estilo e a confiança
+              de cada cliente.
             </p>
           </div>
         </div>
@@ -47,14 +72,28 @@ export default function Home() {
       {/* Services Section */}
       <section id="servicos" className="py-24 bg-stone-100 scroll-mt-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center">Nossos Serviços</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            Nossos Serviços
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-white p-8 rounded-lg shadow-md transition-transform hover:scale-105">
-                <Scissors className="w-12 h-12 mb-6 text-stone-800" />
+              <div
+                key={index}
+                className="bg-white p-8 rounded-lg shadow-md transition-transform hover:scale-105"
+              >
+                <div className="flex">
+                  {service.categories?.includes("HAIR") && (
+                    <Scissors className="w-8 h-8 mb-6 text-stone-800" />
+                  )}
+                  {service.categories?.includes("BEARD") && (
+                    <Slice className="w-8 h-8 mb-6 text-stone-800" />
+                  )}
+                </div>
                 <h3 className="text-2xl font-semibold mb-3">{service.name}</h3>
                 <p className="text-stone-600 mb-4">{service.description}</p>
-                <p className="text-xl font-bold text-stone-800">{service.price}</p>
+                <p className="text-xl font-bold text-stone-800">
+                  {service.price}
+                </p>
               </div>
             ))}
           </div>
@@ -64,11 +103,13 @@ export default function Home() {
       {/* Gallery Section */}
       <section id="galeria" className="py-24 bg-white scroll-mt-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-12 text-center">Nossa Galeria</h2>
+          <h2 className="text-4xl font-bold mb-12 text-center">
+            Nossa Galeria
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="aspect-square relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-23%20at%2022.58.02-un1YkKxHh4pCvft8O4knOCEFQkZMD9.jpeg"
+                src="/photos/corte-1.jpeg"
                 alt="Corte de Cabelo Moderno"
                 layout="fill"
                 objectFit="cover"
@@ -77,7 +118,7 @@ export default function Home() {
             </div>
             <div className="aspect-square relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-23%20at%2022.58.03-B9AlIeRFyYrgbFOGrYDJHatNFrOGip.jpeg"
+                src="/photos/sala-1.jpeg"
                 alt="Interior da Barbearia"
                 layout="fill"
                 objectFit="cover"
@@ -86,7 +127,7 @@ export default function Home() {
             </div>
             <div className="aspect-square relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-23%20at%2022.58.09-MWe29ziZR5Spt0oKZR7JH666Fm0msP.jpeg"
+                src="/photos/raiz-neon.jpeg"
                 alt="Ambiente da Barbearia"
                 layout="fill"
                 objectFit="cover"
@@ -95,7 +136,7 @@ export default function Home() {
             </div>
             <div className="aspect-square relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-23%20at%2022.58.06%20(1)-F3HqkB6xF8Yxqy5RdXfdmKKTzpRK9u.jpeg"
+                src="/photos/merch-1.jpeg"
                 alt="Área de Merchandise"
                 layout="fill"
                 objectFit="cover"
@@ -104,7 +145,7 @@ export default function Home() {
             </div>
             <div className="aspect-square relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-23%20at%2022.58.08-i5rIuwi799X9kmFyaejtRPVx3YWyCt.jpeg"
+                src="/photos/merch-2.jpeg"
                 alt="Entrada da Barbearia"
                 layout="fill"
                 objectFit="cover"
@@ -113,7 +154,7 @@ export default function Home() {
             </div>
             <div className="aspect-square relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-01-23%20at%2022.58.06-bXoIXRxA4fCDCyD1ggFViJZddbPTPz.jpeg"
+                src="/photos/sala-3.jpeg"
                 alt="Área de Espera"
                 layout="fill"
                 objectFit="cover"
@@ -125,7 +166,10 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contacto" className="py-24 bg-stone-800 text-white scroll-mt-20">
+      <section
+        id="contacto"
+        className="py-24 bg-stone-800 text-white scroll-mt-20"
+      >
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-12 text-center">Visite-nos</h2>
           <div className="flex flex-col md:flex-row justify-center items-center md:items-start space-y-8 md:space-y-0 md:space-x-12">
@@ -168,7 +212,7 @@ export default function Home() {
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
-                allowFullScreen=""
+                allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
@@ -182,49 +226,82 @@ export default function Home() {
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
           <p>&copy; 2023 Raiz Barber Studio. Todos os direitos reservados.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="hover:text-stone-300 transition-colors">
+            <a
+              href="/privacidade"
+              className="hover:text-stone-300 transition-colors"
+            >
               Política de Privacidade
             </a>
-            <a href="#" className="hover:text-stone-300 transition-colors">
+            <a
+              href="/termos"
+              className="hover:text-stone-300 transition-colors"
+            >
               Termos de Serviço
             </a>
           </div>
         </div>
       </footer>
     </div>
-  )
+  );
 }
 
 const services = [
   {
-    name: "Corte Clássico",
-    description: "Corte de precisão adaptado ao seu estilo e formato de rosto.",
-    price: "€25",
+    name: "Corte Simples",
+    description: "Pente único, ou tesoura com lâmina.",
+    price: "€10",
+    categories: ["HAIR"],
   },
   {
-    name: "Aparar Barba",
-    description: "Modelagem e cuidado especializado para a barba perfeita.",
-    price: "€15",
+    name: "Corte Tradicional",
+    description: "Máquina e tesoura com lâmina.",
+    price: "€12",
+    categories: ["HAIR"],
   },
   {
-    name: "Barbear com Toalha Quente",
-    description: "Luxuoso barbear tradicional com tratamento de toalha quente.",
-    price: "€30",
+    name: "Corte Personalizado",
+    description: "Degradê, Taper, Mullet e Moicano.",
+    price: "€14",
+    categories: ["HAIR"],
   },
   {
-    name: "Combo Cabelo & Barba",
+    name: "Corte & Barba",
     description: "Pacote completo de cuidados para cabelo e barba.",
-    price: "€40",
+    price: "€18",
+    categories: ["HAIR", "BEARD"],
   },
   {
-    name: "Corte Infantil",
-    description: "Cortes suaves e divertidos para os nossos clientes mais jovens.",
-    price: "€20",
+    name: "Barba",
+    description: "Corte e modelação básica da barba com navalha ou máquina.",
+    price: "€8",
+    categories: ["BEARD"],
   },
   {
-    name: "Coloração",
-    description: "Serviços profissionais de coloração para realçar ou mudar o seu visual.",
-    price: "A partir de €50",
+    name: "Barba com Toalha Quente",
+    description:
+      "Corte e modelação da barba com tratamento de toalha quente para relaxamento e hidratação.",
+    price: "€10",
+    categories: ["BEARD"],
   },
-]
-
+  {
+    name: "Pintura",
+    description:
+      "Coloração completa do cabelo com técnicas profissionais de tingimento.",
+    price: "€15",
+    categories: ["HAIR"],
+  },
+  {
+    name: "Defriso",
+    description:
+      "Tratamento para suavizar e alisar cabelos crespos ou ondulados.",
+    price: "€12",
+    categories: ["HAIR"],
+  },
+  {
+    name: "Platinado",
+    description:
+      "Descoloração e coloração completa para um tom loiro platinado intenso.",
+    price: "Sob consulta",
+    categories: ["HAIR"],
+  },
+];
