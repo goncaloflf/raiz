@@ -28,7 +28,7 @@ export default function Home() {
           priority
         />
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white">
-          <p className="text-4xl italic mb-8 font-light tracking-wider">
+          <p className="text-4xl italic mb-8 font-light tracking-wider text-center px-1">
             O teu estilo começa na Raiz!
           </p>
           <Link href="https://noona.pt/raizbarberstudio" target="_blank">
