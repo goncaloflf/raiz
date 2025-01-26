@@ -45,10 +45,8 @@ export function SiteHeader() {
         <a
           key={item.label}
           href={item.href}
-          className={`transition-colors ${
-            isScrolled
-              ? "text-stone-800 hover:text-stone-600"
-              : "text-white hover:text-stone-200"
+          className={`transition-colors text-stone-800 hover:text-stone-600 ${
+            !isScrolled ? "md:text-white md:hover:text-stone-200" : ""
           } ${className}`}
         >
           {item.label}
