@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { SiteHeader } from "@/components/site-header";
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
@@ -31,7 +32,7 @@ export default function Home() {
           <p className="text-4xl italic mb-8 font-light tracking-wider text-center px-1">
             O teu estilo começa na Raiz!
           </p>
-          <Link href="https://noona.pt/raizbarberstudio" target="_blank">
+          <Link href={BOOKING_URL} target="_blank">
             <Button
               variant={"default"}
               className={

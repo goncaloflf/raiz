@@ -7,6 +7,7 @@ import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname, useParams } from "next/navigation";
 import Link from "next/link";
+import { BOOKING_URL } from "@/lib/constants";
 
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -100,7 +101,7 @@ export function SiteHeader() {
           </div>
 
           {/* Book Now Button */}
-          <Link href="https://noona.pt/raizbarberstudio" target="_blank">
+          <Link href={BOOKING_URL} target="_blank">
             <Button
               variant={isScrolled ? "default" : "outline"}
               className={
